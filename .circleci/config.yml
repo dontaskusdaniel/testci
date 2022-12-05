@@ -29,6 +29,14 @@ jobs:
       - run:
           name: "Say second-job"
           command: "echo second-job!"
+  third-job:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - checkout
+      - run:
+          name: "Say third-job"
+          command: "echo third-job!"
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
@@ -37,3 +45,4 @@ workflows:
     jobs:
       - first-job
       - second-job
+      - third-job
